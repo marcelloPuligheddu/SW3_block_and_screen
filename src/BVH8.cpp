@@ -6,7 +6,7 @@
 #include <queue>
 #include <stdexcept>
 
-void BVH8Node::show() {
+void BVH8Node::show() const {
     std::cout << " BVH8 node: " << std::endl;
     for (int c = 0; c < 8; ++c) {
         std::cout << child_index[c] << " & " << child_count[c] << std::endl;
@@ -36,7 +36,7 @@ BVH8::BVH8(const std::vector<ParticleBlock>& input_blocks, uint32_t max_leaf_siz
     collapse_binary_to_bvh8(binary_nodes, 0);
 }
 
-void BVH8::show_bvh() {
+void BVH8::show_bvh() const {
     for (const auto& node : nodes) {
         node.show();
     }

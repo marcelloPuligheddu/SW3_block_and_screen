@@ -25,7 +25,7 @@ struct alignas(64) BVH8Node {
     uint32_t child_index[8];
     uint32_t child_count[8];
 
-    void show();
+    void show() const ;
 };
 
 inline uint32_t Intersect_Block_BVH8Node(const ParticleBlock& block, const BVH8Node& node, uint32_t* out_lanes) {
@@ -62,7 +62,7 @@ public:
     std::vector<ParticleBlock> sorted_;
 
     BVH8(const std::vector<ParticleBlock>& input_blocks, uint32_t max_leaf_size_);
-    void show_bvh();
+    void show_bvh() const ;
     void FindCollidingBlocksBVH(const ParticleBlock& query, std::vector<uint32_t>& out_collisions);
 
 private:
